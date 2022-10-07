@@ -18,7 +18,9 @@ const wagon = document.getElementById("wagon");
 
 const code = document.getElementById("code");
 
-generatedPrice.addEventListener("click", function(){
+const resetForm = document.getElementById("reset_form");
+
+generatedPrice.addEventListener("click", function () {
     let insertedKm = travelKm.value * 1;
     let insertedAge = age.value * 1;
     let insertedName = nameAndSurname.value;
@@ -31,22 +33,43 @@ generatedPrice.addEventListener("click", function(){
         shownPrice.innerHTML = `${totalPrice}`;
         discountType.innerHTML = "Non sono applicati sconti"
         wagon.innerHTML = Math.floor(Math.random() * 8) + 1;
-        code.innerHTML = Math.floor(Math.random() * 100) +1;
+        code.innerHTML = Math.floor(Math.random() * 100) + 1;
 
-    } else if (insertedAge < 18) {
+    } else if (!isNaN(insertedKm) && insertedAge < 18 && insertedKm !== 0) {
         const discountMinor = ((totalPrice * 20) / 100);
         const finalPrice = (totalPrice - discountMinor).toFixed(2);
-    
-        shownPrice.innerHTML = `Il prezzo del biglietto è: ${finalPrice}`;
-    } else if ( insertedAge > 65) {
+
+        shownPrice.innerHTML = `${finalPrice}`;
+        discountType.innerHTML = "Sconto minorenni";
+        wagon.innerHTML = Math.floor(Math.random() * 8) + 1;
+        code.innerHTML = Math.floor(Math.random() * 100) + 1;
+        passengerName.innerHTML = `${insertedName}`;
+
+    } else if (!isNaN(insertedKm) && insertedAge > 65) {
         const discountOver = ((totalPrice * 40) / 100);
         const finalPrice = (totalPrice - discountOver).toFixed(2);
-    
-        shownPrice.innerHTML = `Il prezzo del biglietto è: ${finalPrice}`;
+
+        shownPrice.innerHTML = `${finalPrice}`;
+        discountType.innerHTML = "Sconto over 65";
+        wagon.innerHTML = Math.floor(Math.random() * 8) + 1;
+        code.innerHTML = Math.floor(Math.random() * 100) + 1;
+        passengerName.innerHTML = `${insertedName}`;
+
     }
 
 })
 
+
+resetForm.addEventListener("click", function () {
+    travelKm.value = undefined;
+    age.value = undefined;
+    nameAndSurname.value = null;
+    shownPrice.innerHTML = null;
+    discountType.innerHTML = null;
+    wagon.innerHTML = null;
+    code.innerHTML = null;
+    passengerName.innerHTML = null;
+})
 
 
 
