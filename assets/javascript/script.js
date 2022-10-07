@@ -15,9 +15,8 @@ generatedPrice.addEventListener("click", function(){
     const totalPrice = (insertedKm * pricePerKm).toFixed(2);
 
     if (!isNaN(insertedKm) && insertedAge >= 18 && insertedAge <= 65) {
-        
-
         shownPrice.innerHTML = `Il prezzo del biglietto è: ${totalPrice}`;
+        
     } else if (insertedAge < 18) {
         const discountMinor = ((totalPrice * 20) / 100);
         const finalPrice = (totalPrice - discountMinor).toFixed(2);

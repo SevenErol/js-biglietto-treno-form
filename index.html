@@ -9,14 +9,48 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+
+    <div class="container">
+        <div class="data_form">
+
+            <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
+            <div class="inputs">
+
+                <div class="row">
+                    <div class="col_3">
+
+                        <p>Nome e Cognome</p>
+                        <input type="text">
+                    </div>
+                    <div class="col_3">
+
+                        <p>Km da percorrere</p>
+                        <input type="number" id="km" name="travel_km">
+
+                    </div>
+                    <div class="col_3">
+
+                        <p>Fascia d'età</p>
+                        <input type="number" id="age" name="your_age">
+
+                    </div>
+                </div>
+
+                <button id="generated_price">Genera</button>
+                <button id="reset_form">Annulla</button>
+            </div>
+        </div>
+
+        <div class="ticket"></div>
+    </div>
     
-    <input type="number" id="km" name="travel_km">
+    
 
-    <input type="number" id="age" name="your_age">
+    
 
-    <input type="button" value="Genera" id="generated_price">
+    
 
-    <h1 id="shown_price"></h1>
+    <h2 id="shown_price"></h2>
 
     <script src="./assets/javascript/script.js"></script>
 </body>
